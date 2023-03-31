@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "types": ["node"],
-    "typeRoots": ["./types"]
+    "typeRoots": ["./src/types"]
   },
   "exclude": [
     "jest.config.ts",
