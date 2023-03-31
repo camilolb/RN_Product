@@ -1,6 +1,3 @@
-import {Provider} from 'react-redux';
-import {store} from './core/frameworks/redux';
-import {Auth0Provider} from 'react-native-auth0';
 import AppNavigation from './mobile/Navigation/AppNavigation';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import {useChangeTheme} from './core/hooks';
@@ -15,12 +12,16 @@ import {
   FIREBASE_APPID,
   FIREBASE_MEASUREID,
 } from '@env';
+import {Provider} from 'jotai';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const queryClient = new QueryClient();
 new MainService();
 
 function App() {
   const {shouldRender} = useChangeTheme();
+
+  console.log('firebase', firebase);
 
   if (firebase.apps.length) {
     firebase.initializeApp({
@@ -36,15 +37,13 @@ function App() {
 
   if (shouldRender) {
     return (
-      <Provider store={store}>
-        <Auth0Provider
-          domain={'dev-elkff7zl2xzxdf48.us.auth0.com'}
-          clientId={'T71Yf81WH4xKud4DTtiuDzDFM7E5RYjd'}>
+      <SafeAreaProvider>
+        <Provider>
           <QueryClientProvider client={queryClient} contextSharing={true}>
             <AppNavigation />
           </QueryClientProvider>
-        </Auth0Provider>
-      </Provider>
+        </Provider>
+      </SafeAreaProvider>
     );
   } else {
     return null;

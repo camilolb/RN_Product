@@ -1,5 +1,5 @@
 import React from 'react';
-import {useLoading, useProduct, useStore} from '../../../core/hooks';
+import {useProduct, useStore} from '../../../core/hooks';
 import * as yup from 'yup';
 import {ProductEditPageComponent} from './ProductEditPageComponent';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -27,7 +27,7 @@ type Props = NavigationScreenProps;
 export function ProductEditPagePresenter({navigation, route}: Props) {
   const {id} = route.params;
   const {data, isLoading} = useProduct(id);
-  const {setLoading} = useLoading();
+  // const {setLoading} = useLoading();
 
   const initialValues = {
     name: data?.Name,
@@ -42,11 +42,11 @@ export function ProductEditPagePresenter({navigation, route}: Props) {
     console.log('TODO');
   };
 
-  useFocusEffect(
-    React.useCallback(() => {
-      setLoading(isLoading);
-    }, [isLoading, setLoading]),
-  );
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     setLoading(isLoading);
+  //   }, [isLoading, setLoading]),
+  // );
 
   return (
     <Formik
