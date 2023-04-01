@@ -26,8 +26,6 @@ type Props = NavigationScreenProps;
 
 export function ProductEditPagePresenter({route}: Props) {
   const {id} = route.params;
-  console.log('id', id);
-
   const {data, isLoading} = useProduct(id);
   const {setLoading} = useLoading();
 

@@ -5,28 +5,13 @@ import {MainService} from './core/services/MainService';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {LoadingProvider} from './mobile/context/LoadingContext';
 import {Provider} from 'jotai';
-import {useDashoard} from './core/frameworks/jotai/atoms';
-import React, {useState} from 'react';
-import {useFocusEffect} from '@react-navigation/native';
+import React from 'react';
 
 const queryClient = new QueryClient();
 new MainService();
 
 function App() {
-  // const [dashboardInformation, setDashboardInformation] = useDashoard();
-  const {shouldRender, toggleTheme} = useChangeTheme();
-  const [theme, setTheme] = useState(false);
-
-  // if (shouldRender && !theme) {
-  //   setTheme(true);
-  //   toggleTheme();
-  // }
-
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     if (dashboardInformation != null) toggleTheme();
-  //   }, [toggleTheme, dashboardInformation]),
-  // );
+  const {shouldRender} = useChangeTheme();
 
   if (shouldRender) {
     return (

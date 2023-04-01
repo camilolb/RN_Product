@@ -9,8 +9,6 @@ export class SecurityRepository implements ISecurityRepository {
 
   async loginWithEmail(userName: string, password: string): Promise<string> {
     const res = await signInWithEmailAndPassword(auth, userName, password);
-    // console.log('res', res);
-
     return await res.user.getIdToken();
   }
 }

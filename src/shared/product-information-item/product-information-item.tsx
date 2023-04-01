@@ -14,8 +14,6 @@ export function ProductInformationItem({
   data,
   onPress,
 }: PaymentInformationItemProps) {
-  console.log(data?.Image);
-
   return (
     <View style={styles.container}>
       <Image

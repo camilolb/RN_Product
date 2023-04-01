@@ -5,14 +5,13 @@ import {
 import {persistReducer, persistStore} from 'redux-persist';
 import {harmonyPersistConfig} from './configs/redux-persist';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
-import harmonyReducer from '../../mobile/pages/audioBucket/infraestructure/redux/harmonyReducer';
 import {DefaultSagaAction} from './configs/sagas.response';
 
 /**
  * Combine all reducers
  */
 const appReducer = combineReducers({
-  harmony: persistReducer(harmonyPersistConfig, harmonyReducer),
+  harmony: persistReducer(harmonyPersistConfig),
 });
 
 /**
