@@ -2,6 +2,10 @@
 
 <p style="text-align: center;"><img src="https://i.ibb.co/WPHMbf2/Screenshot-2023-03-31-at-11-56-48-AM.png" width="450"></p>
 
+## Screens
+
+<p style="text-align: center;"><img src="https://imagizer.imageshack.com/img924/3346/1DOqA0.gif" width="450"></p>
+
 ## Description
 
 This project aims to create a login with firebase and bring a list of products with their respective details, it is a technical test for a company in Colombia
@@ -32,7 +36,6 @@ project
 
 ## architecture explanation
 
-```
 This architecture in a React Native project is organized into two main sections: "core" and "mobile".
 
 In "core", you can find the folders "adapters", "di", "domain", "framework", "hooks", and "services". In "adapters", you can find adapters to integrate with different external services. In "di", you can find the files related to dependency injection. In "domain", you can find the business logic. In "framework", you can find the tools offered by React Native to build the application. In "hooks", you can find custom hooks. In "services", you can find the files related to communication with the backend.
@@ -41,8 +44,7 @@ In "mobile", you can find the folders "context", "mobile-ui", "navigation", and 
 
 Finally, there is the "shared" folder that contains files that can be shared between the different sections of the application.
 
-In summary, this architecture in a React Native project follows the pattern of separation of responsibilities and aims to have a high degree of modularity to facilitate project maintenance and scalability.
-```
+this architecture in a React Native project follows the pattern of separation of responsibilities and aims to have a high degree of modularity to facilitate project maintenance and scalability.
 
 ## stack
 
