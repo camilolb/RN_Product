@@ -2,7 +2,7 @@ import React from 'react';
 import {SignInEmailPageComponent} from './SignInEmailPageComponent';
 import {Formik} from 'formik';
 import * as yup from 'yup';
-import {useLoginWithEmail} from '../../../core/hooks';
+import {useChangeTheme, useLoginWithEmail} from '../../../core/hooks';
 import {useFocusEffect} from '@react-navigation/native';
 import {useLoading} from '../../../core/hooks';
 
@@ -22,6 +22,7 @@ const SignInEmailFormSchema = yup.object().shape({
 export function SignInEmailPagePresenter() {
   const {mutateAsync, isLoading} = useLoginWithEmail();
   const {setLoading} = useLoading();
+  const {toggleTheme} = useChangeTheme();
   const initialValues: SignInEmailFormProps = {
     email: '',
     password: '',
@@ -37,6 +38,10 @@ export function SignInEmailPagePresenter() {
     }
   };
 
+  const toggleDesign = () => {
+    toggleTheme();
+  };
+
   useFocusEffect(
     React.useCallback(() => {
       setLoading(isLoading);
@@ -48,7 +53,7 @@ export function SignInEmailPagePresenter() {
       initialValues={initialValues}
       validationSchema={SignInEmailFormSchema}
       onSubmit={onHandleSubmit}>
-      <SignInEmailPageComponent />
+      <SignInEmailPageComponent toggleDesign={toggleDesign} />
     </Formik>
   );
 }

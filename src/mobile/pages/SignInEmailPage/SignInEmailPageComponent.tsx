@@ -6,8 +6,13 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {useFormikContext} from 'formik';
 import {SignInEmailFormProps} from './SignInEmailPagePresenter';
 import {Button, Label, TextField} from '../../mobile-ui';
+import LinearGradient from 'react-native-linear-gradient';
 
-export function SignInEmailPageComponent() {
+type Props = {
+  toggleDesign: () => void;
+};
+
+export function SignInEmailPageComponent({toggleDesign}: Props) {
   const {values, handleChange, handleSubmit, handleBlur, errors} =
     useFormikContext<SignInEmailFormProps>();
 
@@ -16,6 +21,14 @@ export function SignInEmailPageComponent() {
       <ImageBackground
         source={Images.gradientBackground}
         style={styles.container}>
+        <LinearGradient
+          angle={180}
+          colors={['rgba(0, 0, 0, 0.5)', '#000000']}
+          end={{x: 0, y: 1}}
+          locations={[0, 1]}
+          start={{x: 0, y: 0}}
+          style={styles.linearGradient}
+        />
         <ScrollView contentContainerStyle={styles.scrollView}>
           <SafeAreaView edges={['top']}>
             <View style={styles.logoContainer}>
