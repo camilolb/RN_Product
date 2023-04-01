@@ -1,10 +1,10 @@
 # Cristian Lopez
 
-<p style="text-align: center;"><img src="https://i.ibb.co/WPHMbf2/Screenshot-2023-03-31-at-11-56-48-AM.png" width="450"></p>
+<p style="text-align: center;"><img src="https://i.ibb.co/WPHMbf2/Screenshot-2023-03-31-at-11-56-48-AM.png" width="200"></p>
 
 ## Screens
 
-<p style="text-align: center;"><img src="https://imagizer.imageshack.com/img924/3346/1DOqA0.gif" width="450"></p>
+<p style="text-align: center;"><img src="https://imagizer.imageshack.com/img924/3346/1DOqA0.gif" width="400"></p>
 
 ## Description
 
@@ -45,6 +45,8 @@ In "mobile", you can find the folders "context", "mobile-ui", "navigation", and 
 Finally, there is the "shared" folder that contains files that can be shared between the different sections of the application.
 
 this architecture in a React Native project follows the pattern of separation of responsibilities and aims to have a high degree of modularity to facilitate project maintenance and scalability.
+
+<p style="text-align: center;"><img src="https://sixphere.com/wp-content/uploads/2021/09/4c56a51a-964d-4546-b8e0-0e658535e87c.png" width="200"></p>
 
 ## stack
 
