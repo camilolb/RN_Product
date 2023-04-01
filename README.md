@@ -46,7 +46,7 @@ Finally, there is the "shared" folder that contains files that can be shared bet
 
 this architecture in a React Native project follows the pattern of separation of responsibilities and aims to have a high degree of modularity to facilitate project maintenance and scalability.
 
-<p style="text-align: center;"><img src="https://sixphere.com/wp-content/uploads/2021/09/4c56a51a-964d-4546-b8e0-0e658535e87c.png" width="200"></p>
+<p style="text-align: center;"><img src="https://sixphere.com/wp-content/uploads/2021/09/4c56a51a-964d-4546-b8e0-0e658535e87c.png" width="400"></p>
 
 ## stack
 
