@@ -1,5 +1,5 @@
 import React from 'react';
-import {useProduct, useStore} from '../../../core/hooks';
+import {useLoading, useProduct} from '../../../core/hooks';
 import * as yup from 'yup';
 import {ProductEditPageComponent} from './ProductEditPageComponent';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -24,10 +24,12 @@ export type ProductEditFormProps = {
 };
 type Props = NavigationScreenProps;
 
-export function ProductEditPagePresenter({navigation, route}: Props) {
+export function ProductEditPagePresenter({route}: Props) {
   const {id} = route.params;
+  console.log('id', id);
+
   const {data, isLoading} = useProduct(id);
-  // const {setLoading} = useLoading();
+  const {setLoading} = useLoading();
 
   const initialValues = {
     name: data?.Name,
@@ -35,18 +37,15 @@ export function ProductEditPagePresenter({navigation, route}: Props) {
     stock: data?.Stock,
   };
 
-  const onHandleGoBack = () => {
-    navigation.navigate('HomePage');
-  };
   const onHandleSubmit = () => {
     console.log('TODO');
   };
 
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     setLoading(isLoading);
-  //   }, [isLoading, setLoading]),
-  // );
+  useFocusEffect(
+    React.useCallback(() => {
+      setLoading(isLoading);
+    }, [isLoading, setLoading]),
+  );
 
   return (
     <Formik
@@ -54,7 +53,7 @@ export function ProductEditPagePresenter({navigation, route}: Props) {
       initialValues={initialValues}
       validationSchema={ProductEditFormSchema}
       onSubmit={onHandleSubmit}>
-      <ProductEditPageComponent onHandleGoBack={onHandleGoBack} />
+      <ProductEditPageComponent />
     </Formik>
   );
 }

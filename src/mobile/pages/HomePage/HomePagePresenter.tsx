@@ -18,11 +18,11 @@ export function HomePagePresenter({navigation}: Props) {
       id: product?.Id,
     });
   };
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     setLoading(isLoading);
-  //   }, [isLoading, setLoading]),
-  // );
+  useFocusEffect(
+    React.useCallback(() => {
+      setLoading(isLoading);
+    }, [isLoading, setLoading]),
+  );
 
   return <HomePageComponent productList={data} onHandleEdit={onHandleEdit} />;
 }

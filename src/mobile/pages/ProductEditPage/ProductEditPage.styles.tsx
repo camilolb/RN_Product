@@ -41,6 +41,9 @@ const styles = EStyleSheet.create({
     marginLeft: '$smallSpace',
     color: '$subtitleLabelGray',
   },
+  textInputDesign: {
+    color: '#000',
+  },
 });
 
 export default styles;

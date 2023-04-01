@@ -1,5 +1,5 @@
 import {useAtom} from 'jotai';
-import {atomWithAsyncStorage} from '../../services/atom-with-storage';
+import {atomWithAsyncStorage} from '../../services';
 
 export type DashboardStoragetype = {
   theme: boolean | null;

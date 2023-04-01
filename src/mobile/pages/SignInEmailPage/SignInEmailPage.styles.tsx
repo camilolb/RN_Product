@@ -24,7 +24,8 @@ const styles = EStyleSheet.create({
     marginBottom: '24rem',
   },
   logo: {
-    width: '180rem',
+    width: '$carrouselImageContainerHeight',
+    height: '$carrouselImageContainerHeight',
   },
   textInput: {
     marginBottom: '$singleSpace',
@@ -32,7 +33,7 @@ const styles = EStyleSheet.create({
   descriptionContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: '72rem',
+    marginBottom: '$singleSpace',
   },
 });
 

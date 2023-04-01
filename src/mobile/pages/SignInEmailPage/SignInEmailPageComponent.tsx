@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './SignInEmailPage.styles';
-
-import {ImageBackground, ScrollView, Text, View} from 'react-native';
+import {Image, ImageBackground, ScrollView, View} from 'react-native';
 import {Images} from '../../mobile-ui/assets/images';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useFormikContext} from 'formik';
@@ -20,7 +19,7 @@ export function SignInEmailPageComponent() {
         <ScrollView contentContainerStyle={styles.scrollView}>
           <SafeAreaView edges={['top']}>
             <View style={styles.logoContainer}>
-              <Text>Logo</Text>
+              <Image source={Images.logoNegro} style={styles.logo} />
             </View>
             <View style={styles.descriptionContainer}>
               <Label type={'h2'} fontWeight={'600'} color={'white'}>

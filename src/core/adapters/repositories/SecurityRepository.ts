@@ -7,14 +7,10 @@ import {useSession} from '../../frameworks/jotai/atoms';
 export class SecurityRepository implements ISecurityRepository {
   constructor(readonly http: IHttp) {}
 
-  async loginWithEmail(userName: string, password: string): Promise<void> {
-    const [sessionInformation, setSessionInformation] = useSession();
-    try {
-      const res = await signInWithEmailAndPassword(auth, userName, password);
-      const token = res.user.getIdToken();
-      setSessionInformation(token);
-    } catch {
-      console.log('error');
-    }
+  async loginWithEmail(userName: string, password: string): Promise<string> {
+    const res = await signInWithEmailAndPassword(auth, userName, password);
+    // console.log('res', res);
+
+    return await res.user.getIdToken();
   }
 }

@@ -9,6 +9,7 @@ const styles = EStyleSheet.create({
     alignItems: 'center',
     paddingLeft: '25rem',
     paddingRight: '20rem',
+    marginTop: '20rem',
   },
   textColor: {
     placeholderTextColor: '$white',
@@ -18,7 +19,7 @@ const styles = EStyleSheet.create({
     fontSize: '$fontSizeH3',
     fontWeight: '$fontWeight400',
     flex: 1,
-    color: '$white',
+    color: '$black',
   },
   textFieldSearch: {
     flex: 1,
@@ -39,7 +40,7 @@ const styles = EStyleSheet.create({
     marginRight: '$middleSpace',
   },
   errorText: {
-    color: '$white',
+    color: '$black',
   },
   searchIcon: {
     marginRight: '$middleSpace',

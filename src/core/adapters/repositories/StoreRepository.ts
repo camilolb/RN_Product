@@ -20,10 +20,11 @@ export class StoreRepository implements IStoreRepository {
   }
 
   getProduct(id: string): Promise<IProductEntity> {
+    console.log('idd', id);
+
     return this.http
       .request<IProductEntityData>({
         method: 'get',
-        headers: {},
         url: `${API_URL}/detail/${id}`,
       })
       .then(res => new Product(res));

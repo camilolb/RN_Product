@@ -2,16 +2,18 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import PublicStack from './PublicStack';
 import PrivateStack from './PrivateStack';
-import {useSession} from '../../core/frameworks/jotai/atoms';
+import {
+  SessionStorageType,
+  useSession,
+} from '../../core/frameworks/jotai/atoms';
 
 function AppNavigation() {
-  const [sessionInformation, setSessionInformation] = useSession();
-  console.log('TOKEN', sessionInformation);
+  const [sessionInformation] = useSession();
+  const {token} = sessionInformation as SessionStorageType;
 
   return (
     <NavigationContainer>
-      <PublicStack />
-      {/* {token == null ? <PublicStack /> : <PrivateStack />} */}
+      {token == null || token === '' ? <PublicStack /> : <PrivateStack />}
     </NavigationContainer>
   );
 }
