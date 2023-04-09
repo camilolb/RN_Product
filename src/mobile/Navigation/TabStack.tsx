@@ -1,7 +1,11 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import PrivateStack from './PrivateStack';
-import {NavBarIcon} from '../../shared';
+import {
+  BottomTabBarProps,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
+import {HomePagePresenter} from '../pages/HomePage/HomePagePresenter';
+import {ButtonNavBar} from '../mobile-ui';
+import {ProfilePagePagePresenter} from '../pages';
 
 export type TabStackList = {
   Home: undefined;
@@ -10,18 +14,22 @@ export type TabStackList = {
 
 const TabStack = createBottomTabNavigator<TabStackList>();
 
-function NavBarStack() {
+function NavbarWrapper(prop: BottomTabBarProps) {
+  return <ButtonNavBar {...prop} />;
+}
+export function NavBarStack() {
   return (
     <TabStack.Navigator
-      initialRouteName={'Home'}
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
           backgroundColor: 'transparent',
         },
-      }}>
+      }}
+      initialRouteName={'Home'}
+      tabBar={props => <NavbarWrapper {...props} />}>
       <TabStack.Screen
-        component={PrivateStack}
+        component={HomePagePresenter}
         name={'Home'}
         // options={{
         //   tabBarIcon: NavBarIcon({
@@ -30,8 +38,7 @@ function NavBarStack() {
         //   }),
         // }}
       />
+      <TabStack.Screen component={ProfilePagePagePresenter} name={'Profile'} />
     </TabStack.Navigator>
   );
 }
-
-export default NavBarStack;

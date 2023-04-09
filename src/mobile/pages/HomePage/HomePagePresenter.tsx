@@ -10,19 +10,19 @@ type NavigationScreenProps = NativeStackScreenProps<PrivateStackParamList>;
 type Props = NavigationScreenProps;
 
 export function HomePagePresenter({navigation}: Props) {
-  const {data, isLoading} = useStore();
-  const {setLoading} = useLoading();
+  // const {data, isLoading} = useStore();
+  // const {setLoading} = useLoading();
 
   const onHandleEdit = (product?: IProductEntity) => {
     navigation.navigate('ProductEdit', {
       id: product?.Id,
     });
   };
-  useFocusEffect(
-    React.useCallback(() => {
-      setLoading(isLoading);
-    }, [isLoading, setLoading]),
-  );
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     setLoading(isLoading);
+  //   }, [isLoading, setLoading]),
+  // );
 
-  return <HomePageComponent productList={data} onHandleEdit={onHandleEdit} />;
+  return <HomePageComponent productList={[]} onHandleEdit={onHandleEdit} />;
 }

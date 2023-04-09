@@ -5,3 +5,5 @@ export * from './icon-button/icon-button';
 export * from './label/label';
 export * from './text-field/text-field';
 export * from './system-button/system-button';
+export * from './ButtonNavBar/ButtonNavBar';
+export * from './circle-image/circle-image';

@@ -1,9 +1,5 @@
-export interface IBaseEntity {
-  toJSON: any;
-}
-
-class BaseEntity {
-  toJSON(): any {
+export class BaseEntity<T> {
+  toJSON(): T {
     return Object.entries(this)
       .map(([key, value]) => [
         key.startsWith('_') ? key.substring(1) : key,
@@ -15,5 +11,3 @@ class BaseEntity {
       }, {});
   }
 }
-
-export default BaseEntity;

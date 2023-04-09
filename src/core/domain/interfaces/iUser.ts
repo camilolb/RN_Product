@@ -1,10 +1,12 @@
 export interface IUserEntity {
-  Email: string;
-  NickName: string;
-  Image: string;
+  Email: string | null;
+  NickName?: string | null;
+  Image?: string | null;
+  Token?: string | null;
 }
 export interface IUserEntityData {
-  email: string;
-  nickname: string;
-  image: string;
+  email: string | null;
+  nickname: string | null;
+  image: string | null;
+  token: string | null;
 }
