@@ -9,8 +9,10 @@ export class SecurityUseCase implements ISecurityUseCase {
     userName: string,
     password: string,
   ): Promise<IUserEntity> {
-    console.log('ssss');
-
     return await this.securityRepo.loginWithEmail(userName, password);
+  }
+
+  async logoutUser(): Promise<void> {
+    return await this.securityRepo.userLogout();
   }
 }

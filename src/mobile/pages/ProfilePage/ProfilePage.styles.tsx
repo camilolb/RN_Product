@@ -93,5 +93,12 @@ const styles = EStyleSheet.create({
   profileImageContainer: {
     marginBottom: '$singleSpace',
   },
+  logoutButtonContainer: {
+    backgroundColor: '$white',
+  },
+  buttonLogout: {
+    borderBottomWidth: '.5rem',
+    margin: '$doubleSpace',
+  },
 });
 export default styles;

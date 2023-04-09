@@ -1,17 +1,19 @@
 import React from 'react';
 import {ScrollView, View} from 'react-native';
-import {CircleImage, Header, Label} from '../../mobile-ui';
+import {Button, CircleImage, Header, Label} from '../../mobile-ui';
 import styles from './ProfilePage.styles';
 import {IUserEntity} from '../../../core/domain';
 
 interface Props {
   onHandleEditProfile: () => void;
   userInformation?: IUserEntity;
+  onHandleLogout: () => void;
 }
 
 export function ProfilePageComponent({
   onHandleEditProfile,
   userInformation,
+  onHandleLogout,
 }: Props) {
   return (
     <>
@@ -54,6 +56,14 @@ export function ProfilePageComponent({
           </View>
         </>
       </ScrollView>
+      <View style={styles.logoutButtonContainer}>
+        <Button
+          label={'Desconectar'}
+          type={'black'}
+          containerStyles={styles.buttonLogout}
+          onPress={onHandleLogout}
+        />
+      </View>
     </>
   );
 }

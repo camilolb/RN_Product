@@ -6,16 +6,17 @@ import Label from '../label/label';
 // import IconGoogle from '../images/svg/IconGoogle.svg';
 // import IconApple from '../images/svg/IconApple.svg';
 // import EmailIcon from '../images/svg/EmailIcon.svg';
+// import {Check} from '../../index';
 
 export interface ButtonProps {
   disabled?: boolean;
   onPress?: () => void;
   label: string;
   style?: TextStyle;
-  icon?: 'facebook' | 'google' | 'apple' | 'email';
+  icon?: 'facebook' | 'google' | 'apple' | 'email' | 'check';
   containerStyles?: ViewStyle;
   labelStyles?: TextStyle;
-  type?: 'regular' | 'transparentBordered' | 'transparent';
+  type?: 'regular' | 'transparentBordered' | 'transparent' | 'black' | 'blue';
 }
 
 // function ButtonIcon({icon}: Pick<ButtonProps, 'icon'>) {
@@ -29,6 +30,8 @@ export interface ButtonProps {
 //         return <IconApple width={17} />;
 //       case 'email':
 //         return <EmailIcon width={17} />;
+//       case 'check':
+//         return <Check width={17} />;
 //     }
 //   }
 //   return null;
@@ -63,14 +66,23 @@ export function Button({
       containerStyle.push(styles.transparent.container);
       labelStyle.push(styles.transparent.text);
       break;
+    case 'black':
+      containerStyle.push(styles.black.container);
+      labelStyle.push(styles.black.text);
+      break;
+    case 'blue':
+      containerStyle.push(styles.blue.container);
+      labelStyle.push(styles.blue.text);
+      break;
   }
 
   return (
-    <Pressable style={containerStyle} disabled={disabled} onPress={onPress}>
-      {/* <ButtonIcon icon={icon} /> */}
-      <Label type={'regular'} style={labelStyle}>
+    <Pressable disabled={disabled} style={containerStyle} onPress={onPress}>
+      {/* {icon !== 'check' && <ButtonIcon icon={icon} />} */}
+      <Label style={labelStyle} type={'regular'}>
         {label}
       </Label>
+      {/* {icon === 'check' && <ButtonIcon icon={icon} />} */}
     </Pressable>
   );
 }

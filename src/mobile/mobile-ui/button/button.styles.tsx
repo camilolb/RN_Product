@@ -2,16 +2,16 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 const styles = EStyleSheet.create({
   container: {
-    backgroundColor: "$white",
+    backgroundColor: '$white',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     borderRadius: '7rem',
-    paddingHorizontal: '16rem',
-    height: '52rem'
+    paddingHorizontal: '$singleSpace',
+    height: '52rem',
   },
   containerDisabled: {
-    opacity: 0.5,
+    backgroundColor: '$transparentWhiteDark',
   },
   transparentBordered: {
     container: {
@@ -21,7 +21,7 @@ const styles = EStyleSheet.create({
     },
     text: {
       color: '$white',
-    }
+    },
   },
   transparent: {
     container: {
@@ -29,7 +29,23 @@ const styles = EStyleSheet.create({
     },
     text: {
       color: '$white',
-    }
+    },
+  },
+  black: {
+    container: {
+      backgroundColor: '$black',
+    },
+    text: {
+      color: '$white',
+    },
+  },
+  blue: {
+    container: {
+      backgroundColor: '$blueButton',
+    },
+    text: {
+      color: '$white',
+    },
   },
   text: {
     color: '$textColor',
@@ -38,6 +54,6 @@ const styles = EStyleSheet.create({
     textAlign: 'center',
     fontSize: '$fontSizeRegular',
   },
-})
+});
 
 export default styles;

@@ -1,6 +1,6 @@
 import {IHttp} from '../infrastructures/interfaces';
 import {ISecurityRepository} from './interfaces';
-import {signInWithEmailAndPassword} from 'firebase/auth';
+import {signInWithEmailAndPassword, signOut} from 'firebase/auth';
 import {auth} from '../../frameworks/configs/firebase-config';
 import {IUserEntity, User} from '../../domain';
 
@@ -12,15 +12,15 @@ export class SecurityRepository implements ISecurityRepository {
     password: string,
   ): Promise<IUserEntity> {
     const res = await signInWithEmailAndPassword(auth, userName, password);
-    const token = await res?.user?.getIdToken();
-    const userResponse = new User({
+    return new User({
       email: res?.user?.email,
       nickname: res?.user?.displayName,
       image: res?.user?.photoURL,
-      token,
+      token: await res?.user?.getIdToken(),
     });
-    console.log('userResponse', userResponse);
+  }
 
-    return userResponse;
+  async userLogout(): Promise<void> {
+    return await signOut(auth);
   }
 }
