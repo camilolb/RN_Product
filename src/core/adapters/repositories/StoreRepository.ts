@@ -11,7 +11,7 @@ export class StoreRepository implements IStoreRepository {
       .request<IProductEntityData[]>({
         method: 'get',
         headers: {},
-        url: `${API_URL}products`,
+        url: `${API_URL}/products`,
       })
       .then(res => res)
       .then(res => {
@@ -23,7 +23,7 @@ export class StoreRepository implements IStoreRepository {
     return this.http
       .request<IProductEntityData>({
         method: 'get',
-        url: `${API_URL}products/${id}`,
+        url: `${API_URL}/products/${id}`,
       })
       .then(res => new Product(res));
   }
