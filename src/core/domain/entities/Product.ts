@@ -1,32 +1,39 @@
+import {BaseEntity} from '../../../shared';
 import {IProductEntity, IProductEntityData} from '../interfaces/iProduct';
 
-export class Product implements IProductEntity {
+export class Product
+  extends BaseEntity<IProductEntity>
+  implements IProductEntity
+{
   private _Id: string;
-  private _Name: string;
+  private _Title: string;
   private _Price: string;
-  private _Stock: string;
   private _Image: string;
+  private _Description: string;
 
   constructor(request: IProductEntityData) {
+    super();
     this._Id = request.id;
-    this._Name = request.name;
-    this._Price = request.unit_price;
-    this._Stock = request.stock;
+    this._Title = request.title;
+    this._Price = request.price;
+
     this._Image = request.image;
+    this._Description = request.description;
   }
   get Id(): string {
     return this._Id;
   }
-  get Name(): string {
-    return this._Name;
+  get Title(): string {
+    return this._Title;
   }
   get Price(): string {
     return this._Price;
   }
-  get Stock(): string {
-    return this._Stock;
-  }
+
   get Image(): string {
     return this._Image;
+  }
+  get Description(): string {
+    return this._Description;
   }
 }

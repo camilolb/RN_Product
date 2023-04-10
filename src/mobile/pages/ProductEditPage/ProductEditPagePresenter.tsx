@@ -6,6 +6,8 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {PrivateStackParamList} from '../../Navigation';
 import {Formik} from 'formik';
 import {useFocusEffect} from '@react-navigation/native';
+import {IProductEntity} from '../../../core/domain';
+import {CartStoragetype, useCart} from '../../../core/frameworks/jotai';
 
 type NavigationScreenProps = NativeStackScreenProps<
   PrivateStackParamList,
@@ -25,18 +27,26 @@ export type ProductEditFormProps = {
 type Props = NavigationScreenProps;
 
 export function ProductEditPagePresenter({route}: Props) {
+  const [cartInformation, setCartInformation] = useCart();
+  const {products} = cartInformation as CartStoragetype;
   const {id} = route.params;
   const {data, isLoading} = useProduct(id);
   const {setLoading} = useLoading();
 
   const initialValues = {
-    name: data?.Name,
+    name: data?.Title,
     unit_price: data?.Price,
-    stock: data?.Stock,
+    stock: data?.Price,
   };
 
   const onHandleSubmit = () => {
     console.log('TODO');
+  };
+
+  const onHandleAddCart = (product?: IProductEntity) => {
+    const res = [...products, product || []];
+    console.log('product', product);
+    setCartInformation({products: res});
   };
 
   useFocusEffect(
@@ -51,7 +61,10 @@ export function ProductEditPagePresenter({route}: Props) {
       initialValues={initialValues}
       validationSchema={ProductEditFormSchema}
       onSubmit={onHandleSubmit}>
-      <ProductEditPageComponent />
+      <ProductEditPageComponent
+        onHandleAddCart={onHandleAddCart}
+        product={data}
+      />
     </Formik>
   );
 }

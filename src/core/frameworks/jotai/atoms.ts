@@ -1,14 +1,16 @@
 import {useAtom} from 'jotai';
 import {atomWithAsyncStorage} from '../../services';
-import {IUserEntity} from '../../domain';
+import {IProductEntity, IUserEntity} from '../../domain';
 
 export type DashboardStoragetype = {
   theme: boolean | null;
 };
-
 export type SessionStorageType = {
   token: string;
   user: IUserEntity;
+};
+export type CartStoragetype = {
+  products: IProductEntity[];
 };
 const sessionInformation = atomWithAsyncStorage<
   SessionStorageType,
@@ -25,10 +27,20 @@ const dashboardInformation = atomWithAsyncStorage<
   theme: null,
 });
 
+const cartInformation = atomWithAsyncStorage<CartStoragetype, CartStoragetype>(
+  'CART',
+  {
+    products: [],
+  },
+);
+
 export const useSession = () => {
   return useAtom(sessionInformation);
 };
 
 export const useDashoard = () => {
   return useAtom(dashboardInformation);
+};
+export const useCart = () => {
+  return useAtom(cartInformation);
 };

@@ -1,14 +1,14 @@
 export interface IProductEntity {
   Id: string;
-  Name: string;
+  Title: string;
   Price: string;
-  Stock: string;
+  Description: string;
   Image: string;
 }
 export interface IProductEntityData {
   id: string;
-  name: string;
-  unit_price: string;
-  stock: string;
+  title: string;
+  price: string;
+  description: string;
   image: string;
 }

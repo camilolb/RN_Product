@@ -7,10 +7,7 @@ const styles = EStyleSheet.create({
   container: {flex: 1, backgroundColor: '$white'},
   scrollViewContainer: {
     backgroundColor: '$white',
-    marginTop: '$heightInput + $tripleSpace',
-  },
-  titlePaymentForm: {
-    marginBottom: '$singleSpace',
+    marginTop: '$headerHeight + $doubleSpace',
   },
   containerMicroForm: {
     margin: '$singleSpace',
@@ -43,6 +40,26 @@ const styles = EStyleSheet.create({
   },
   textInputDesign: {
     color: '#000',
+  },
+  descriptionContainer: {
+    flex: 1,
+  },
+  titleProductDescription: {
+    borderBottomWidth: '$singleSpace',
+  },
+  logoutButtonContainer: {
+    backgroundColor: '$white',
+  },
+  buttonLogout: {
+    borderBottomWidth: '.5rem',
+    margin: '$doubleSpace',
+  },
+  image: {
+    with: entireScreenWidth,
+    height: '$carrouselImageContainerHeightOpenMarket',
+  },
+  productDescriptionContainer: {
+    margin: '$doubleSpace',
   },
 });
 

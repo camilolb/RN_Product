@@ -1,71 +1,80 @@
 import React from 'react';
-import {ScrollView, View} from 'react-native';
-import {Header, Label, SystemButton, TextField} from '../../mobile-ui';
+import {Image, ScrollView, View} from 'react-native';
+import {Button, Header, Label, SystemButton, TextField} from '../../mobile-ui';
 import styles from './ProductEditPage.styles';
 import {useFormikContext} from 'formik';
 import {ProductEditFormProps} from './ProductEditPagePresenter';
+import {IProductEntity} from '../../../core/domain';
 
-export function ProductEditPageComponent() {
+interface Props {
+  onHandleAddCart: (product?: IProductEntity) => void;
+  product?: IProductEntity;
+}
+
+export function ProductEditPageComponent({onHandleAddCart, product}: Props) {
   const {values, handleChange, handleBlur, errors, touched, handleSubmit} =
     useFormikContext<ProductEditFormProps>();
+
+  console.log('product?.Image', product?.Image);
 
   return (
     <>
       <View style={styles.container}>
         <Header
           options={{
-            title: 'Edit Product',
+            title: 'Product information',
             showGoBackButton: true,
             borderBottom: true,
             blackHeader: true,
-            headerRight: () => (
-              <SystemButton title={'SUBMIT'} onPress={handleSubmit} />
-            ),
           }}
         />
         <ScrollView contentContainerStyle={styles.scrollViewContainer}>
           <>
-            <View style={styles.containerMicroForm}>
+            <Image source={{uri: product?.Image}} style={styles.image} />
+            <View style={styles.productDescriptionContainer}>
               <Label
                 fontWeight={'bold'}
-                style={styles.titlePaymentForm}
-                type={'h3'}>
-                Product information
+                style={styles.titleProductDescription}
+                type={'h2'}>
+                {product?.Title}
               </Label>
-
-              <TextField
-                autoCapitalize={'none'}
-                hasError={!!errors.name}
-                error={errors.name}
-                placeholder={'Name'}
-                containerStyle={styles.textInputDesign}
-                onChangeText={handleChange('name')}
-                onBlur={handleBlur('name')}
-                value={values.name}
-              />
-              <TextField
-                autoCapitalize={'none'}
-                hasError={!!errors.unit_price}
-                error={errors.unit_price}
-                placeholder={'Unit Price'}
-                containerStyle={styles.textInputDesign}
-                onChangeText={handleChange('unit_price')}
-                onBlur={handleBlur('unit_price')}
-                value={values.unit_price?.toString()}
-              />
-              <TextField
-                autoCapitalize={'none'}
-                hasError={!!errors.stock}
-                error={errors.stock}
-                placeholder={'Stock'}
-                containerStyle={styles.textInputDesign}
-                onChangeText={handleChange('stock')}
-                onBlur={handleBlur('stock')}
-                value={values.stock?.toString()}
-              />
+              <Label
+                fontWeight={'bold'}
+                style={styles.titleProductDescription}
+                type={'h3'}>
+                {'Description'}
+              </Label>
+              <Label
+                fontWeight={'300'}
+                style={styles.titleProductDescription}
+                type={'h3'}>
+                {product?.Description}
+              </Label>
+              <Label
+                fontWeight={'bold'}
+                style={styles.titleProductDescription}
+                type={'h3'}>
+                {'Price'}
+              </Label>
+              <Label
+                fontWeight={'300'}
+                style={styles.titleProductDescription}
+                type={'h3'}>
+                {'$'}
+                {product?.Price}
+                {' USD'}
+              </Label>
             </View>
           </>
         </ScrollView>
+        <View style={styles.logoutButtonContainer}>
+          <Button
+            label={'Add to cart'}
+            type={'black'}
+            containerStyles={styles.buttonLogout}
+            onPress={() => onHandleAddCart(product)}
+          />
+        </View>
       </View>
     </>
   );

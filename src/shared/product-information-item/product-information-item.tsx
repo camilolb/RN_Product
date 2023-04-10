@@ -24,15 +24,14 @@ export function ProductInformationItem({
       />
 
       <Label fontWeight={'300'} style={styles.label}>
-        {data?.Name} {'\n'}
+        {data?.Title} {'\n'}
         Price: {data?.Price}
         {'\n'}
-        Stock: {data?.Stock}
       </Label>
       <Pressable onPress={() => onPress(data)}>
         <View style={styles.containerEdit}>
           <Label fontWeight={'500'} style={styles.editLabel}>
-            Edit
+            View
           </Label>
         </View>
       </Pressable>

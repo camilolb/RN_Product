@@ -58,7 +58,7 @@ export function ProfilePageComponent({
       </ScrollView>
       <View style={styles.logoutButtonContainer}>
         <Button
-          label={'Desconectar'}
+          label={'Logout'}
           type={'black'}
           containerStyles={styles.buttonLogout}
           onPress={onHandleLogout}

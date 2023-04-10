@@ -5,11 +5,12 @@ import {
 } from '@react-navigation/bottom-tabs';
 import {HomePagePresenter} from '../pages/HomePage/HomePagePresenter';
 import {ButtonNavBar} from '../mobile-ui';
-import {ProfilePagePagePresenter} from '../pages';
+import {CartPagePresenter, ProfilePagePagePresenter} from '../pages';
 
 export type TabStackList = {
   Home: undefined;
   Profile: undefined;
+  Cart: undefined;
 };
 
 const TabStack = createBottomTabNavigator<TabStackList>();
@@ -38,6 +39,7 @@ export function NavBarStack() {
         //   }),
         // }}
       />
+      <TabStack.Screen component={CartPagePresenter} name={'Cart'} />
       <TabStack.Screen component={ProfilePagePagePresenter} name={'Profile'} />
     </TabStack.Navigator>
   );
