@@ -7,8 +7,6 @@ export class StoreRepository implements IStoreRepository {
   constructor(readonly http: IHttp) {}
 
   getProducts(): Promise<IProductEntity[]> {
-    console.log('sss');
-
     return this.http
       .request<IProductEntityData[]>({
         method: 'get',

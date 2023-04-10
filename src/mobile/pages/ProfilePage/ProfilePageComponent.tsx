@@ -31,7 +31,6 @@ export function ProfilePageComponent({
             <View style={styles.profileImageContainer}>
               <CircleImage
                 imageURL={
-                  userInformation?.Image ||
                   'https://www.pinclipart.com/picdir/middle/541-5416602_dummy-profile-image-url-clipart.png'
                 }
               />

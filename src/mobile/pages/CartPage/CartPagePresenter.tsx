@@ -13,7 +13,7 @@ export function CartPagePresenter() {
     console.log('TODO');
   };
   const onHandleEdit = (product?: IProductEntity) => {
-    console.log('product');
+    console.log('product', product);
   };
   return (
     <CartPageComponent

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList} from 'react-native';
 import {Header} from '../../mobile-ui';
 import styles from './CartPage.styles';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -12,14 +12,7 @@ type Props = {
   onHandleSubmit: () => void;
 };
 
-export function CartPageComponent({
-  productList,
-  onHandleEdit,
-  onHandleSubmit,
-}: Props) {
-  // const groupedProducts = CartPage.groupProducts(productList || []);
-  // console.log('groupedProducts', groupedProducts);
-
+export function CartPageComponent({productList, onHandleEdit}: Props) {
   return (
     <>
       <Header

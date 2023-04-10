@@ -1,9 +1,7 @@
 import React from 'react';
 import {Image, ScrollView, View} from 'react-native';
-import {Button, Header, Label, SystemButton, TextField} from '../../mobile-ui';
+import {Button, Header, Label} from '../../mobile-ui';
 import styles from './ProductEditPage.styles';
-import {useFormikContext} from 'formik';
-import {ProductEditFormProps} from './ProductEditPagePresenter';
 import {IProductEntity} from '../../../core/domain';
 
 interface Props {
@@ -12,11 +10,6 @@ interface Props {
 }
 
 export function ProductEditPageComponent({onHandleAddCart, product}: Props) {
-  const {values, handleChange, handleBlur, errors, touched, handleSubmit} =
-    useFormikContext<ProductEditFormProps>();
-
-  console.log('product?.Image', product?.Image);
-
   return (
     <>
       <View style={styles.container}>

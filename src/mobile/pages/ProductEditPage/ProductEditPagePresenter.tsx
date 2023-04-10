@@ -45,7 +45,6 @@ export function ProductEditPagePresenter({route}: Props) {
 
   const onHandleAddCart = (product?: IProductEntity) => {
     const res = [...products, product || []];
-    console.log('product', product);
     setCartInformation({products: res});
   };
 
